@@ -26,7 +26,9 @@ class UserInDBBase(UserBase):
 
     class Config:
         orm_mode = True
-
+class UserLogin(BaseModel):
+    email: EmailStr
+    password: Optional[str] = None
 
 # Additional properties to return via API
 class User(UserInDBBase):
