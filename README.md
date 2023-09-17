@@ -9,9 +9,7 @@ This is the template project for FastAPI. I just created a blog management, the 
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+- [Future Enhancement](#future-enhancement)
 
 ## Introduction
 
@@ -38,7 +36,7 @@ List the key features of your project.
 ## Usage
 
 
-## Contributing
+## Future Enhancement
 
 1. Docker
 2. Authenticaiton and Role based authorization
