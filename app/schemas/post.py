@@ -9,18 +9,18 @@ class PostBase(BaseModel):
     description: Optional[str] = None
 
 
-# Properties to receive on item creation
-class ItemCreate(PostBase):
+# Properties to receive on Post creation
+class PostCreate(PostBase):
     pass
 
 
-# Properties to receive on item update
-class ItemUpdate(PostBase):
+# Properties to receive on Post update
+class PostUpdate(PostBase):
     pass
 
 
 # Properties shared by models stored in DB
-class ItemInDBBase(PostBase):
+class PostInDBBase(PostBase):
     id: int
     user_id: int
 
@@ -29,10 +29,10 @@ class ItemInDBBase(PostBase):
 
 
 # Properties to return to client
-class Item(ItemInDBBase):
+class Post(PostInDBBase):
     pass
 
 
 # Properties properties stored in DB
-class ItemInDB(ItemInDBBase):
+class PostInDB(PostInDBBase):
     pass

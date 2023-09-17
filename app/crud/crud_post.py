@@ -5,12 +5,12 @@ from sqlalchemy.orm import Session
 
 from app.crud.base import CRUDBase
 from app.models.post import Post
-from app.schemas.post import ItemCreate, ItemUpdate
+from app.schemas.post import PostCreate, PostUpdate
 
 
-class CRUDItem(CRUDBase[Post, ItemCreate, ItemUpdate]):
-    def create_with_owner(
-        self, db: Session, *, obj_in: ItemCreate, user_id: int
+class CRUDPost(CRUDBase[Post, PostCreate, PostUpdate]):
+    def create_with_user(
+        self, db: Session, *, obj_in: PostCreate, user_id: int
     ) -> Post:
         obj_in_data = jsonable_encoder(obj_in)
         db_obj = self.model(**obj_in_data, user_id=user_id)
@@ -19,7 +19,7 @@ class CRUDItem(CRUDBase[Post, ItemCreate, ItemUpdate]):
         db.refresh(db_obj)
         return db_obj
 
-    def get_multi_by_owner(
+    def get_multi_by_user(
         self, db: Session, *, user_id: int, skip: int = 0, limit: int = 100
     ) -> List[Post]:
         return (
@@ -31,4 +31,4 @@ class CRUDItem(CRUDBase[Post, ItemCreate, ItemUpdate]):
         )
 
 
-item = CRUDItem(Post)
+Post = CRUDPost(Post)
