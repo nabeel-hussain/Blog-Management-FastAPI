@@ -8,10 +8,6 @@ from app.api import deps
 
 router = APIRouter()
 
-@router.get("/get")
-def get(db: Session = Depends(deps.get_db)):
-    print(db)
-    return "Hellow"
 @router.get("/", response_model=List[schemas.User])
 def get_users(
     db: Session = Depends(deps.get_db),

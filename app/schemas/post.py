@@ -7,10 +7,11 @@ from pydantic import BaseModel
 class PostBase(BaseModel):
     title: Optional[str] = None
     description: Optional[str] = None
-
+    user_id: int
 
 # Properties to receive on Post creation
 class PostCreate(PostBase):
+    
     pass
 
 
@@ -22,7 +23,6 @@ class PostUpdate(PostBase):
 # Properties shared by models stored in DB
 class PostInDBBase(PostBase):
     id: int
-    user_id: int
 
     class Config:
         orm_mode = True

@@ -31,4 +31,4 @@ class CRUDPost(CRUDBase[Post, PostCreate, PostUpdate]):
         )
 
 
-Post = CRUDPost(Post)
+post = CRUDPost(Post)
